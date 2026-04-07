@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swarna Kadagadkai, Docusign Product Design Intern</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: #111;
+    /* width: 900px; */
+    margin: 0 auto;
+    padding: 48px 52px 44px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 16px;
+    border-bottom: 2.5px solid #111;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .header .role-pill {
+    display: inline-block;
+    background: #1a56db;
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-top: 6px;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 0.75rem;
+    color: #555;
+    line-height: 1.9;
+  }
+  .header-right a { color: #1a56db; text-decoration: none; }
+
+  /* INTRO STRIP */
+  .intro-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .intro-cell { padding: 14px 18px; }
+  .intro-cell:first-child { border-right: 1px solid #e2e8f0; }
+  .intro-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #1a56db;
+    margin-bottom: 6px;
+  }
+  .intro-cell p { font-size: 0.8rem; color: #333; line-height: 1.6; }
+
+  /* METRICS */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .metric {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .metric-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1a56db;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .metric-label { font-size: 0.68rem; color: #666; line-height: 1.3; }
+
+  /* SECTION HEADING */
+  .section-heading {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #1a56db;
+    margin-bottom: 10px;
+  }
+
+  /* MATCH TABLE */
+  .match-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 22px;
+    font-size: 0.78rem;
+  }
+  .match-table thead tr { background: #111; color: #fff; }
+  .match-table thead th {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 9px 14px;
+    text-align: left;
+  }
+  .match-table thead th:nth-child(1) { width: 30%; border-radius: 6px 0 0 0; }
+  .match-table thead th:nth-child(2) { width: 70%; border-radius: 0 6px 0 0; }
+  .match-table tbody tr { border-bottom: 1px solid #e2e8f0; }
+  .match-table tbody tr:last-child { border-bottom: none; }
+  .match-table tbody tr:nth-child(even) { background: #f8fafc; }
+  .match-table tbody td { padding: 10px 14px; vertical-align: top; }
+  .match-table .jd-col { color: #111; font-weight: 500; line-height: 1.5; }
+  .match-table .how-col { color: #333; line-height: 1.55; }
+  .tag-inline {
+    display: inline-block;
+    background: #eff6ff;
+    color: #1a56db;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin: 2px 2px 0 0;
+    white-space: nowrap;
+  }
+
+  .project-link {
+    display: inline-block;
+    font-size: 0.68rem;
+    color: #1a56db;
+    text-decoration: none;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .project-link:hover { text-decoration: underline; }
+  .weeks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .week-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .week-header {
+    background: #1a56db;
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+  }
+  .week-body { padding: 12px 14px; }
+  .week-item {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.77rem;
+    color: #333;
+    line-height: 1.5;
+  }
+  .week-item:last-child { margin-bottom: 0; }
+  .week-dot {
+    flex-shrink: 0;
+    width: 5px;
+    height: 5px;
+    background: #1a56db;
+    border-radius: 50%;
+    margin-top: 6px;
+  }
+
+  /* BOTTOM ROW */
+  .bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 18px;
+  }
+  .skill-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+  .skill-tag {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+  .edu-item { margin-bottom: 9px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-deg { font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; color: #111; }
+  .edu-school { font-size: 0.72rem; color: #1a56db; margin-top: 1px; }
+  .edu-detail { font-size: 0.68rem; color: #888; margin-top: 1px; }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-note { font-size: 0.7rem; color: #aaa; }
+  .footer-url { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700; color: #1a56db; }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <h1>Swarna Kadagadkai</h1>
+      <div class="role-pill">Product Design Intern &bull; Document Template Experience &bull; Docusign</div>
+    </div>
+    <div class="header-right">
+      <div>swarnakadagadkai@utexas.edu &nbsp;|&nbsp; +1 (737) 419-0516</div>
+      <div><a href="https://swarna.design">swarna.design</a> &nbsp;|&nbsp; Austin, TX</div>
+    </div>
+  </div>
+
+  <!-- ABOUT + WHY -->
+  <div class="intro-strip">
+    <div class="intro-cell">
+      <div class="intro-label">About Me</div>
+      <p>Design engineer pursuing an MS in HCI at UT Austin (graduating May 2027), with 4+ years building B2B SaaS products across fintech, developer tools, healthtech, and maritime software. I move between user research, interaction design, and front-end engineering. Along with handing off specs, I also ship them.</p>
+    </div>
+    <div class="intro-cell">
+      <div class="intro-label">Why Docusign</div>
+      <p>Great templates reduce friction for millions of users every day. The challenge of making complex agreement workflows feel obvious, flexible enough for enterprise legal teams and simple enough for a first-time user, is exactly the kind of systems design problem I want to work on.</p>
+    </div>
+  </div>
+
+  <!-- METRICS -->
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-num">4+</div>
+      <div class="metric-label">Years B2B SaaS design &amp; engineering</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">56%</div>
+      <div class="metric-label">Faster demo creation at RevOwl</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">35%</div>
+      <div class="metric-label">Product adoption lift at Lloyd's Register</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">27</div>
+      <div class="metric-label">Teams using design system I built</div>
+    </div>
+  </div>
+
+  <!-- MATCH TABLE -->
+  <div class="section-heading">What Docusign Is Looking For and How I Deliver</div>
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th>What Docusign Needs</th>
+        <th>How I Deliver</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="jd-col">Explore big ideas, then narrow to feasible, inventive solutions</td>
+        <td class="how-col">At SaaSPay I explored multiple flow directions before converging on a loan origination UX that shipped in 6 weeks. <br><br> At RevOwl I iterated on broad concepts before landing on the demo builder architecture that cut creation time by 56%.</td>
+      </tr>
+      <tr>
+        <td class="jd-col">Deliverables: storyboards, wireframes, user flows, prototypes, pixel-perfect web and mobile assets</td>
+        <td class="how-col">UTickets covered every format across a 3-month cycle from wireframes to pixel-perfect mobile screens.<br><a class="project-link" href="https://swarna.design/utickets" target="_blank">swarna.design/utickets</a><br><br>Mito Health produced user flows, IA maps, a design system, and interactive prototypes, all presented to founders.<br><a class="project-link" href="https://www.swarna.design/projects/mito-health" target="_blank">swarna.design/mito-health</a></td>
+      </tr>
+      <tr>
+        <td class="jd-col">Work within a design system, maintain consistency across the product ecosystem</td>
+        <td class="how-col">Built a design system pipeline used by 27 engineering teams at Lloyd's Register, reducing dev time by 52%. Redesigned Cloud Fleet Manager within existing system constraints, shipping changes without breaking consistency.<br><a class="project-link" href="https://canva.link/tbb5ovta0cuki0g" target="_blank">Lloyd's Register case study</a></td>
+      </tr>
+      <tr>
+        <td class="jd-col">Collaborate with PM, engineering, user research, and tech writers</td>
+        <td class="how-col">At Lloyd's Register I partnered with PMs and engineers daily on crewing and payroll flows. <br><br>At SaaSPay I worked directly with founding engineers to ship the MVP. At RevOwl I held all three roles simultaneously, designer, engineer, and customer voice.</td>
+      </tr>
+      <tr>
+        <td class="jd-col">Present work and give feedback in team critiques</td>
+        <td class="how-col">Presented the Mito Health redesign and full design rationale directly to founders.<br><a class="project-link" href="https://www.swarna.design/projects/mito-health" target="_blank">swarna.design/mito-health</a><br><br>At RevOwl I led customer feedback sessions and design reviews at every sprint. Comfortable defending decisions and receiving critique at any fidelity.</td>
+      </tr>
+      <tr>
+        <td class="jd-col">Use analytics and user research to inform design decisions</td>
+        <td class="how-col">UTickets: 30+ user interviews revealed that 88% of users had abandoned existing platforms, directly shaping a trust-first design direction. <br><a class="project-link" href="https://swarna.design/utickets" target="_blank">swarna.design/utickets</a><br><br>At RevOwl, churn analytics drove the onboarding redesign that halved churn from 7% to 3.5%.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- FIRST 2 WEEKS -->
+  <div class="section-heading">My First 2 Weeks at Docusign</div>
+  <div class="weeks-grid">
+    <div class="week-card">
+      <div class="week-header">Week 1 &mdash; Listen and Learn</div>
+      <div class="week-body">
+        <div class="week-item"><div class="week-dot"></div><div>Audit the current document template experience end to end as a new user, a power user, and an enterprise admin, noting friction points and inconsistencies</div></div>
+        <div class="week-item"><div class="week-dot"></div><div>Review existing user research, analytics, and prior design explorations to understand what has already been tried and why</div></div>
+        <div class="week-item"><div class="week-dot"></div><div>Read through Docusign's design system documentation and get familiar with component patterns before touching any design files</div></div>
+        <div class="week-item"><div class="week-dot"></div><div>Schedule 1:1s with PM, engineering, and a tech writer to understand each partner's perspective on the template problem</div></div>
+      </div>
+    </div>
+    <div class="week-card">
+      <div class="week-header">Week 2 &mdash; Explore and Contribute</div>
+      <div class="week-body">
+        <div class="week-item"><div class="week-dot"></div><div>Synthesise audit findings into a clear problem framing and share a short summary with the team to align on what I'm seeing before designing anything</div></div>
+        <div class="week-item"><div class="week-dot"></div><div>Generate 3 to 5 rough concept directions for one specific template friction point, ranging from minimal tweaks to bigger structural ideas</div></div>
+        <div class="week-item"><div class="week-dot"></div><div>Bring early explorations to a team critique with clear design rationale, not just visuals</div></div>
+        <div class="week-item"><div class="week-dot"></div><div>Identify one quick win that can be prototyped and tested within the internship window, with a concrete research method to validate it</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS + EDUCATION -->
+  <div class="bottom-row">
+    <div>
+      <div class="section-heading">Skills</div>
+      <div class="skill-row">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Prototyping</span>
+        <span class="skill-tag">Design Systems</span>
+        <span class="skill-tag">User Research</span>
+        <span class="skill-tag">Wireframing</span>
+        <span class="skill-tag">Visual Design</span>
+        <span class="skill-tag">Information Architecture</span>
+        <span class="skill-tag">Interaction Design</span>
+
+
+      </div>
+      <div class="skill-row">
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">HTML / CSS</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Vercel</span>
+        <span class="skill-tag">AI tools</span>
+        <span class="skill-tag">Storybook</span>
+
+      </div>
+    </div>
+    <div>
+      <div class="section-heading">Education</div>
+      <div class="edu-item">
+        <div class="edu-deg">MS Information Studies, HCI Specialisation</div>
+        <div class="edu-school">University of Texas, Austin</div>
+        <div class="edu-detail">Graduating May 2027</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-deg">BE Information Science</div>
+        <div class="edu-school">JSS Academy of Technical Education, Bengaluru</div>
+        <div class="edu-detail">Aug 2021 &nbsp;|&nbsp; GPA 3.24 / 4.0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-note">Available for Summer 2026 internship &nbsp;|&nbsp; Hybrid (Austin / Seattle / SF)</div>
+    <div class="footer-url">swarna.design</div>
+  </div>
+
+</body>
+</html>
